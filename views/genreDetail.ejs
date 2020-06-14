@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Detalle del género: <%=genres.name%> </h1>
+
+    <ul>
+        <li> Nombre: <%=genres.name%> </li>
+        <li> Rating: <%=genres.ranking%> </li>
+        <li> Codigo de actividad: <%=genres.active%> </li>
+        <li>Pelis:</li>
+        <ul> 
+        <% genres.movies.forEach(element => { %>
+            <%  if (element == undefined) {  %>
+              <%   console.log("no existe nada") %>
+              <%   } %>
+            <li>  <%=element.title%> </li>
+            <% }); %>
+        </ul>
+    </ul>
+    
+   
+
+    
+</body>
+</html>

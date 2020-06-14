@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Detalle de la película <%=movies.title%> </h1>
+
+    <ul>
+        <li> Titulo: <%=movies.title%> </li>
+        <li> Rating: <%=movies.rating%> </li>
+        <li> Premios: <%=movies.awards%> </li>
+        <li> Fecha de estreno: <%=movies.release_date%> </li>
+        <li> Duración: <%=movies.length%> </li>
+        <% if (movies.Genre) { %> 
+        <li>Género: <%=movies.Genre.name%></li>
+        <% }  %>
+        <% if (movies.actors != "") { %> 
+        <li>Actores:
+            <ul>
+
+                
+        <% movies.actors.forEach(function(element) { %>
+        <li> <a href="/movies/actor/<%=element.id%>">  <%=element.first_name%> <%=element.last_name%> </a> </li>
+        <% }) %>
+        <% }  %>
+           </ul>
+    </li>
+    </ul>
+
+    <a href="/movies/edit/<%=movies.id%>"> 
+        <button>Editar</button>
+    </a>
+
+    <form action="/movies/detail/delete/<%=movies.id%>" method="POST">
+        <button type = "submit">Borrar</button>
+    </form>
+</body>
+</html>

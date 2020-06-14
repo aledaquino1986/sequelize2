@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esta es la lista de pelis</title>
+</head>
+<body>
+
+    <h1>Listado de películas</h1>
+
+    <ul> 
+    <% for (let i = 0; i < movies.length; i++) { %>
+
+      
+         <li>
+           
+           <a href="/movies/detail/<%=movies[i].id%>">  <%=movies[i].title%> </a>
+            <% if(movies[i].Genre) { %>  
+              <%= " - " %>  <a href="/movies/genres/<%=movies[i].Genre.id%>"> <%= movies[i].Genre.name %> </a>
+              
+              <%  } %> 
+            <ul>
+              <% for (let j = 0; j < movies[i].actors.length; j++){%>
+                 
+                <li>
+                  <a href="/movies/actor/<%=movies[i].actors[j].id%>"> <%= movies[i].actors[j].first_name + " " + movies[i].actors[j].last_name  %></a>
+                </li>
+
+                <%  } %>
+            </ul>
+
+           
+         </li>
+   <% } %>
+</ul>
+</body>
+</html>

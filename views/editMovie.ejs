@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear</title>
+</head>
+<body>
+    <h1>Formulario para editar la película: <%=movies.title%> </h1>
+    <form method="POST" action="/movies/edit/<%=movies.id%> ">
+
+        <% if(typeof errors != "undefined") {%>
+            <p style="color: red;"> ERROR <p> 
+                <ul>
+                     <% for (let i = 0; i < errors.length; i++) { %>
+                     <li>
+                         <%= errors[i].msg %>
+       <% } %>
+                <ul>
+           <%}%>
+        <br>
+    
+
+        <label for="">Titulo</label><br />
+        <input type="text" name="title"  value="<%=movies.title%>"/><br />
+        <label for="">Duración</label><br />
+        <input type="text" name="length"  value="<%=movies.length%>"/><br />
+        <label for="">Rating</label><br />
+        <input type="text" name="rating" value="<%=movies.rating%>" /><br />
+        <label for="">Fecha de estreno</label><br />
+        <input type="date" name="release_date"  value="<%=movies.release_date%>"/><br />
+        <label for="">Premios</label><br />
+        <input type="text" name="awards" value="<%=movies.awards%>" /><br />
+        <input type="submit" value="Editar" />
+      </form>
+    </body>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <% if(typeof errors != "undefined") {%>
+        <p style="color: red;"> ERROR <p> 
+            <ul>
+                 <% for (let i = 0; i < errors.length; i++) { %>
+                 <li>
+                     <%= errors[i].msg %>
+   <% } %>
+            <ul>
+       <%}%>
+    <br>
+
+    <a href="/movies/edit/<%=movies.id%>"> 
+        <button>Editar</button>
+    </a>
+    
+</body>
+</html>
